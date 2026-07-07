@@ -1,0 +1,48 @@
+use DB_T04301_PAULO_SOSA;
+
+select * from TB_PAD_PRODUTOS;
+
+-- alteração
+
+ALTER TABLE TB_PAD_PRODUTOS ADD COLUMN PRD_QUANT INT;
+alter TABLE TB_PAD_PRODUTOS ADD COLUMN PRD_ALT DATE;
+
+-- atualização
+
+UPDATE TB_PAD_PRODUTOS SET PRD_ALT = "25-06-26" WHERE isnull(PRD_ALT);
+
+select * from TB_PAD_PRODUTOS;
+select * from TB_PAD_FORNECEDORES;
+
+-- inserts
+
+inseRT INTO TB_PAD_FORNECEDORES(FOR_NOME,FOR_CNPJ,FOR_TEL)
+	VALUES
+		('Próprio','12345678901234',''),
+        ('Perdigão','12345678901234','46852976523');
+        
+INSERT INTO TB_PAD_PRODUTOS(PRD_NOME,PRD_VALOR,PRD_FABRICANTE,PRD_QUANT,PRD_ALT)
+	VALUES
+			('Pão',2,4,40,'25-06-26'),
+            ('Baquete',20,4,2,'25-06-26'),
+            ('Mussarela',60,5,1,'25-06-26'),
+            ('Salame',90,5,1,'25-06-26');
+            
+select * from TB_PAD_PRODUTOS;
+
+-- apagar
+
+DELETE from TB_PAD_PRODUTOS WHERE PRD_NOME LIKE '%Salame%';
+
+select * from TB_PAD_PRODUTOS;
+
+
+-- FALTOU
+
+START TRANSACTION;
+
+UPDATE TB_PAD_PRODUTOS SET PRD_VALOR=3;
+
+SELECT * FROM TB_PAD_PRODUTOS;
+
+ROLLBACK;
