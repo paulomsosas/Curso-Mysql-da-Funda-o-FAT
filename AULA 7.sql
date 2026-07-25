@@ -20,3 +20,6 @@ grant all privileges on DB_T04301_PAULO_SOSA.* to 'paulo_sosa'@'%';
 ALTER USER 'paulo_sosa'@'%' identified BY 'ALTERADA';
 
 revoke select ON DB_T04301_PAULO_SOSA.TB_CLIENTES from 'paulo_sosa'@'%';
+
+
+
